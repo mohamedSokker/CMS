@@ -1,19 +1,10 @@
 version: "3"
 services:
-  # python-app:
-  #   build: ./PythonAI
-  #   volumes:
-  #     - ./PythonAI:/pythonApp
-  #   ports:
-  #     - "8000:8000"
   node-app:
-    # container_name: express-node-app-container
     build: ./backend
     volumes:
       - ./backend:/app:ro
       - /home/mohamed/bauereg:/home/mohamed/bauereg
-    # ports:
-    #   - "5000:5000"
     env_file:
       - ./backend/.env
   web:

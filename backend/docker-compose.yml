@@ -1,0 +1,26 @@
+version: "3"
+services:
+  node-app:
+    container_name: express-node-app-container
+    build: .
+    volumes:
+      - ./v3:/app/v3:ro
+      - node_data:/home/mohamed/bauereg
+      # - oilSamplesAnalyzed_data:/home/mohamed/bauereg/OilSamplesAnalyzed/Bauer
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+volumes:
+  node_data:
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/mohamed/bauereg/OilSamples/Bauer
+    #   o: bind
+  # oilSamplesAnalyzed_data:
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     device: /home/mohamed/bauereg/OilSamplesAnalyzed/Bauer
+  #     o: bind

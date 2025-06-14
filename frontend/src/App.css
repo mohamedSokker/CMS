@@ -1,0 +1,352 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+/* .e-grid .e-toolbar,
+.e-grid .e-toolbar .e-toolbar-items,
+.e-grid .e-toolbar .e-toolbar-items .e-toolbar-item,
+.e-grid .e-toolbar .e-toolbar-items .e-toolbar-item button {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.e-grid .e-groupdroparea {
+  background-color: rgba(0, 0, 0, 0.8);
+} */
+
+.e-grid {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.sidebar {
+  box-shadow: rgb(113 122 131 / 11%) 0px 7px 30px 0px;
+}
+
+.CategoryActive {
+  background-color: rgb(0, 74, 128);
+  color: white;
+}
+
+.CategoryActive:is(.dark) {
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+}
+
+.nav-item,
+.navbar {
+  z-index: 10000;
+  /* max-height: 100px; */
+}
+
+.toggleMode-in {
+  transform: translateX(12px);
+  transition: all 0.5s ease-in-out;
+}
+
+.toggleMode-out {
+  transform: translateX(0px);
+  transition: all 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .Window--Page {
+    max-width: calc(100% - 288px);
+  }
+}
+
+@media (max-width: 767px) {
+  .Header {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Main--Content {
+    margin-top: 70px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    z-index: 10000000;
+  }
+}
+
+.e-dlg-center-center,
+.e-quick-popup-wrapper.e-device {
+  z-index: 1000000 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* color-picker style  */
+
+#preview {
+  background: transparent
+    url("https://ej2.syncfusion.com/react/demos/src/color-picker/images/pen.png")
+    no-repeat;
+  display: inline-block;
+  height: 80px;
+  margin: 10px 0;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: #008000;
+}
+
+.e-input-group:not(.e-float-icon-left),
+.e-input-group.e-success:not(.e-float-icon-left),
+.e-input-group.e-warning:not(.e-float-icon-left),
+.e-input-group.e-error:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-success:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-warning:not(.e-float-icon-left),
+.e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
+  border: none;
+}
+
+e-tooltip-wrap.dark .e-popup {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+select option:checked {
+  background-color: #bfdbfe !important; /* Tailwind's blue-200 */
+  color: #1e40af !important; /* Tailwind's blue-900 */
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.dark-mode .e-grid {
+  background-color: #1f2937 !important; /* Tailwind gray-800 */
+  color: #f9fafb !important; /* Tailwind gray-50 */
+}
+
+/* Header */
+.dark-mode .e-grid .e-headercell {
+  background-color: #374151 !important; /* Tailwind gray-700 */
+  color: #f9fafb !important;
+}
+
+/* Rows */
+.dark-mode .e-grid .e-recordrow,
+.dark-mode .e-grid .e-alt_row {
+  background-color: #111827 !important; /* Tailwind gray-900 */
+  color: #f9fafb !important;
+}
+
+/* Toolbar */
+.dark-mode .e-grid .e-toolbar {
+  background-color: #374151 !important;
+  color: #f9fafb !important;
+}
+
+/* Toolbar buttons */
+.dark-mode .e-grid .e-toolbar-items button,
+.dark-mode .e-grid .e-toolbar-items .e-btn {
+  color: #f9fafb !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Pager (Pagination) */
+.dark-mode .e-grid .e-pager {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+.dark-mode .e-grid .e-pager .e-link {
+  color: #f9fafb !important;
+}
+
+/* Filter Bar */
+.dark-mode .e-grid .e-filterbarcell {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+/* Edit Form Dialog */
+.dark-mode .e-grid .e-edit-form-container {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+.dark-mode .e-grid .e-input-group input.e-input,
+.dark-mode .e-grid .e-input-group textarea.e-input {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  border: 1px solid #4b5563 !important;
+}
+
+/* Popup dialogs (Edit/Add) */
+.dark-mode .e-grid .e-popup-open .e-gridformdlg {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+/* Dropdowns, menus, filter popups */
+.dark-mode .e-grid .e-filter-popup,
+.dark-mode .e-grid .e-menu-item,
+.dark-mode .e-grid .e-list-item {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+.dark-mode .e-grid .e-filter-popup input[type="text"],
+.dark-mode .e-grid .e-filter-popup select {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  border: 1px solid #4b5563 !important;
+}
+
+/* Light Theme */
+.e-grid.light-grid .e-gridheader,
+.e-grid.light-grid .e-gridcontent {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Theme */
+.e-grid.dark-grid .e-gridheader,
+.e-grid.dark-grid .e-gridcontent {
+  background-color: #1f2937 !important; /* Tailwind gray-800 */
+  color: #f9fafb !important; /* Tailwind gray-50 */
+}
+
+.e-grid.dark-grid .e-row {
+  background-color: #374151 !important; /* Tailwind gray-700 */
+  color: #f9fafb;
+}
+
+.e-grid.dark-grid .e-altrow {
+  background-color: #1f2937 !important;
+}
+
+.e-grid.dark-grid .e-headercell {
+  background-color: #111827 !important; /* Tailwind gray-900 */
+  color: #d1d5db;
+}
+
+/* .e-grid.dark-grid .e-toolbar-items,
+.e-grid.dark-grid .e-pager {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+} */
+
+/* Dark Theme Overrides for Toolbar & Pager */
+.e-grid.dark-grid .e-toolbar-items,
+.e-grid.dark-grid .e-toolbar-items .e-btn,
+.e-grid.dark-grid .e-toolbar-items .e-input-group {
+  background-color: #1f2937 !important; /* Tailwind gray-800 */
+  color: #f9fafb !important;
+  border-color: #4b5563 !important; /* Tailwind gray-600 */
+}
+
+.e-grid.dark-grid .e-toolbar-items .e-btn:hover {
+  background-color: #374151 !important; /* Tailwind gray-700 */
+}
+
+.e-grid.dark-grid .e-pager,
+.e-grid.dark-grid .e-pager .e-parentmsgbar,
+.e-grid.dark-grid .e-pager .e-currentitem,
+.e-grid.dark-grid .e-pager .e-pager-nav,
+.e-grid.dark-grid .e-pager .e-btn,
+.e-grid.dark-grid .e-pager .e-btn:focus,
+.e-grid.dark-grid .e-pager .e-btn:hover {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+  border-color: #4b5563 !important;
+}
+
+.e-grid.dark-grid .e-pager .e-btn:hover {
+  background-color: #374151 !important;
+}
+
+/* Dark Theme Styles for Syncfusion Grid */
+.e-grid.dark-grid,
+.e-grid.dark-grid .e-gridheader,
+.e-grid.dark-grid .e-gridcontent,
+.e-grid.dark-grid .e-emptyrow,
+.e-grid.dark-grid .e-rowcell,
+.e-grid.dark-grid .e-headercell,
+.e-grid.dark-grid .e-toolbar-items,
+.e-grid.dark-grid .e-pager,
+.e-grid.dark-grid .e-filterbarcell,
+.e-grid.dark-grid .e-input-group input,
+.e-grid.dark-grid .e-btn,
+.e-grid.dark-grid .e-btn span.e-tbar-btn-text,
+.e-grid.dark-grid .e-pager .e-parentmsgbar,
+.e-grid.dark-grid .e-pager .e-currentitem,
+.e-grid.dark-grid .e-pager .e-pager-nav,
+.e-grid.dark-grid .e-dropdown-popup li,
+.e-grid.dark-grid .e-menu-item {
+  background-color: #1f2937 !important; /* Tailwind gray-800 */
+  color: #f9fafb !important; /* Tailwind gray-50 */
+  border-color: #4b5563 !important; /* Tailwind gray-600 */
+}
+
+/* Hover & Active States */
+.e-grid.dark-grid .e-toolbar-items .e-btn:hover,
+.e-grid.dark-grid .e-pager .e-btn:hover,
+.e-grid.dark-grid .e-dropdown-popup li:hover,
+.e-grid.dark-grid .e-menu-item:hover {
+  background-color: #374151 !important; /* Tailwind gray-700 */
+  color: #ffffff !important;
+}
+
+.e-grid.dark-grid .e-toolbar-items .e-btn:active,
+.e-grid.dark-grid .e-pager .e-btn:active {
+  background-color: #111827 !important; /* Tailwind gray-900 */
+}
+
+* Search input field */ .e-grid.dark-grid .e-gridheader .e-input-group input {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+  border-color: #4b5563 !important;
+}
+
+/* Search placeholder text */
+.e-grid.dark-grid .e-gridheader .e-input-group input::placeholder {
+  color: #f9fafb !important; /* Tailwind gray-400 */
+  opacity: 1;
+}
+
+/* Toolbar icon buttons */
+.e-grid.dark-grid .e-toolbar-items .e-tbar-btn-text,
+.e-grid.dark-grid .e-toolbar-items .e-btn span.e-icons,
+.e-grid.dark-grid .e-toolbar-items .e-btn span.e-fe-icon {
+  color: #f9fafb !important;
+}
+
+/* Context menu icons (like Edit, Delete) */
+.e-grid.dark-grid .e-contextmenu ul li .e-menu-icon,
+.e-grid.dark-grid .e-contextmenu ul li .e-menu-item-text {
+  color: #f9fafb !important;
+}
+
+/* Dropdown icons in toolbar menus */
+.e-grid.dark-grid .e-toolbar-items .e-input-group .e-input-group-icon,
+.e-grid.dark-grid .e-toolbar-items .e-dropdown-btn .e-input-group-icon {
+  background-color: #1f2937 !important;
+  color: #f9fafb !important;
+}
+
+/* Optional: Hover effect on icons */
+.e-grid.dark-grid .e-toolbar-items .e-btn:hover span.e-icons,
+.e-grid.dark-grid .e-toolbar-items .e-btn:hover span.e-tbar-btn-text,
+.e-grid.dark-grid .e-contextmenu ul li:hover .e-menu-icon {
+  color: #ffffff !important;
+}

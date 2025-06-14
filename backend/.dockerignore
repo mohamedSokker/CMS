@@ -1,0 +1,7 @@
+/node_modules
+.env
+bauereg-bc3ce-firebase-adminsdk-t8gkh-9d6f5fbd23.json
+bauersparepart-firebase-adminsdk-uuv97-26df9a7d82.json
+srv-cjgca8337aks73bnp2f0@ssh.oregon.render.com
+Dockerfile
+docker-compose*

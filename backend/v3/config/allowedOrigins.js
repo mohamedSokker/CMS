@@ -12,6 +12,7 @@ const allowedOrigins = [
   "http://192.168.1.13:5173",
   "http://localhost:8080",
   "http://192.168.1.8:8080",
+  "https://cms-frontend-91b2.onrender.com",
 ];
 
 module.exports = allowedOrigins;

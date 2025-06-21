@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="relative h-screen flex items-center justify-center px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 overflow-hidden">
+    <div className="relative h-screen flex items-center justify-center px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
@@ -39,21 +39,21 @@ const ForgotPassword = () => {
       ></div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
+      <div className="absolute inset-0 bg-black opacity-40 dark:bg-gray-900 dark:opacity-60 z-10"></div>
 
       {/* Card */}
-      <div className="z-20 max-w-md w-full bg-white rounded-xl shadow-2xl p-8 space-y-8">
+      <div className="z-20 max-w-md w-full bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 space-y-8 transition-transform transform hover:scale-[1.01] duration-300">
         <div className="text-center">
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
             Forgot Password
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             Enter your email to receive a password reset link.
           </p>
         </div>
 
         {error && (
-          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-3 rounded">
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-3 rounded dark:bg-red-900 dark:border-red-600 dark:text-red-200">
             <p>{error}</p>
           </div>
         )}
@@ -62,7 +62,7 @@ const ForgotPassword = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Email Address
             </label>
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-300"
               placeholder="you@example.com"
             />
           </div>
@@ -86,7 +86,7 @@ const ForgotPassword = () => {
               className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white ${
                 loading
                   ? "bg-indigo-400 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700"
+                  : "bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-800"
               } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition`}
             >
               {loading ? (
@@ -107,7 +107,7 @@ const ForgotPassword = () => {
                     <path
                       className="opacity-75"
                       fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      d="M4 12a8 80 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
                   Sending...
@@ -120,11 +120,11 @@ const ForgotPassword = () => {
         </form>
 
         <div className="text-center">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             Remembered your password?{" "}
             <a
               href="/login"
-              className="font-medium text-purple-600 hover:text-purple-500"
+              className="font-medium text-purple-600 hover:text-purple-500 dark:text-purple-400 dark:hover:text-purple-300"
             >
               Back to Login
             </a>

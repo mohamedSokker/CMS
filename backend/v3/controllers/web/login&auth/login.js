@@ -42,7 +42,10 @@ const loginapp = async (req, res) => {
         username: username,
         title: SearchedItems["Title"],
         department: SearchedItems["Department"],
-        roles: JSON.parse(SearchedItems["UserRole"]),
+        roles:
+          SearchedItems["UserRole"] && SearchedItems["UserRole"] !== ""
+            ? JSON.parse(SearchedItems["UserRole"])
+            : null,
         img: SearchedItems["ProfileImg"],
       };
       // console.log(user);

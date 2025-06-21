@@ -115,6 +115,8 @@ const deleteTable = async (table) => {
   }
 };
 
+// deleteTable("AdminUsersApp");
+
 const deleteTableAllData = async (table) => {
   try {
     const query = `DELETE FROM ${table}`;

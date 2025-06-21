@@ -15,12 +15,12 @@ async function searchFile(dir, searchedData, result) {
 
     // if the file is a directory, recursively search the directory
     if (fileStat.isDirectory()) {
-      if (file.includes(searchedData)) {
+      if (file.toLowerCase().includes(searchedData.toLowerCase())) {
         // if the file is a match, print it
         result.push(filePath.replace(dir, ""));
       }
       searchFile(filePath, searchedData, result);
-    } else if (file.includes(searchedData)) {
+    } else if (file.toLowerCase().includes(searchedData.toLowerCase())) {
       // if the file is a match, print it
       result.push(filePath.replace(dir, ""));
 

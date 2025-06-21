@@ -236,14 +236,14 @@ const UploadCard = ({
         style={{ backdropFilter: "blur(2px)", opacity: 0.8 }}
       ></div>
       <div
-        className={`md:w-[36.6%] w-[90%] md:h-[74.5%] h-[80%] flex flex-col justify-between items-center bg-white relative z-[1001] mainContent overflow-y-scroll`}
+        className={`md:w-[36.6%] w-[90%] md:h-[74.5%] h-[80%] flex flex-col justify-between items-center bg-white dark:bg-gray-700 dark:text-white relative z-[1001] mainContent overflow-y-scroll`}
         style={{
           animation: !isCanceled
             ? "animate-in 0.5s ease-in-out"
             : "animate-out 0.5s ease-in-out",
         }}
       >
-        <div className="flex flex-row w-full p-2 px-6 justify-between">
+        <div className="flex h-[10%] flex-row w-full p-2 px-2 justify-end">
           <div>
             <TooltipComponent
               content="close"
@@ -251,9 +251,8 @@ const UploadCard = ({
               className="flex items-center"
             >
               <button
-                className="hover:cursor-pointer p-2 hover:rounded-full hover:bg-gray-300 aspect-square flex justify-center items-center"
+                className="hover:cursor-pointer p-1 text-[10px] rounded-full bg-gray-300 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-900  w-[25px] aspect-square flex justify-center items-center"
                 onClick={() => {
-                  setFiles(null);
                   setIsCanceled(true);
                   setTimeout(() => {
                     setIsUploadCard(false);
@@ -269,7 +268,7 @@ const UploadCard = ({
         {!files ? (
           <div className="h-full flex flex-col w-[60%] p-2 px-6 justify-center items-center gap-4 text-[14px]">
             <div
-              className="w-full aspect-square border-1 border-black border-dashed flex flex-row justify-center items-center"
+              className="w-full aspect-square border-1 border-black dark:border-gray-300 border-dashed flex flex-row justify-center items-center"
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
@@ -284,7 +283,7 @@ const UploadCard = ({
               ref={inputRef}
             />
             <button
-              className="p-2 py-1 bg-gray-100 border-1 border-gray-300 hover:bg-gray-200 rounded-md"
+              className="p-2 py-1 bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-gray-600 border-1 border-gray-300 hover:bg-gray-200 rounded-md"
               onClick={() => inputRef.current.click()}
             >
               Select Files

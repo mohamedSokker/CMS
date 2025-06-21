@@ -225,7 +225,7 @@ const EditUser = () => {
                         user.ProfileImg
                       }`}
                       alt="Profile"
-                      className="w-16 h-16 object-cover rounded-full blur-sm transition-all duration-300 ease-in-out"
+                      className="w-16 h-16 object-contain rounded-full blur-sm transition-all duration-300 ease-in-out"
                       onLoad={(e) => e.target.classList.remove("blur-sm")}
                       onError={(e) => {
                         e.target.src = userDefault;

@@ -30,29 +30,22 @@ const Folder = ({
 
   const { setErrorData } = useNavContext();
 
-  // console.log(path);
-  // console.log(currentPath);
-  // console.log(files);
-  // console.log(searchedFiles);
-  // console.log(searchedItems);
-
   useEffect(() => {
-    // console.log(searchedItems);
-    // openArrow(path);
     searchedItems.map((item) => {
       const filesArray = item.split("/");
-      // filesArray.map((file) => {
-      // console.log(file);
-      if (filesArray.includes(filename)) {
+      console.log(path);
+      if (
+        filesArray.includes(filename)
+        // ||
+        // files?.some((file) => filesArray?.includes(file?.file))
+      ) {
         setSearchedFiles((prev) =>
           Array.from(new Set([...prev, filesArray[filesArray.length - 1]]))
         );
         if (path !== "") {
           openArrow();
         }
-        // openArrow();
       }
-      // });
     });
   }, [searchedItems, path]);
 
@@ -138,17 +131,25 @@ const Folder = ({
     // console.log(path);
   };
 
+  useEffect(() => {
+    getFiles();
+  }, []);
+
   return (
     <div className="flex flex-col w-full">
       <div
-        className="flex flex-row items-center rounded-md"
-        style={{
-          backgroundColor: isHovered ? "rgb(229,231,235)" : "",
-          cursor: isHovered ? "pointer" : "default",
-        }}
+        className={`flex flex-row items-center rounded-md ${
+          isHovered
+            ? "bg-[rgb(229,231,235)] dark:bg-gray-800 cursor-pointer"
+            : "cursor-default"
+        }`}
+        // style={{
+        //   backgroundColor: isHovered ? "rgb(229,231,235)" : "",
+        //   cursor: isHovered ? "pointer" : "default",
+        // }}
       >
         <button
-          className="py-2 px-[2px] hover:bg-gray-300 rounded-l-[4px] relative z-[2]"
+          className="py-2 px-[2px] hover:bg-gray-300 dark:hover:bg-gray-700 rounded-l-[4px] relative z-[2]"
           onClick={handleArrowClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -176,7 +177,7 @@ const Folder = ({
       </div>
 
       {isFolderOpen && (
-        <div className="border-l-1 border-gray-300 w-full flex flex-col">
+        <div className="border-l-1 border-gray-300 dark:border-gray-700 w-full flex flex-col">
           {!files ? (
             <div className="w-full h-full px-2 flex flex-row items-center justify-start">
               <ColorRing
@@ -219,13 +220,17 @@ const Folder = ({
                 ) : (
                   <div
                     key={i}
-                    className="w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 hover:cursor-pointer"
+                    className={`w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer ${
+                      searchedFiles.includes(file?.file)
+                        ? "bg-[rgb(209,213,219)] dark:bg-gray-800"
+                        : ""
+                    }`}
                     onClick={() => {}}
-                    style={{
-                      backgroundColor: searchedFiles.includes(file?.file)
-                        ? "rgb(209,213,219)"
-                        : "",
-                    }}
+                    // style={{
+                    //   backgroundColor: searchedFiles.includes(file?.file)
+                    //     ? "rgb(209,213,219)"
+                    //     : "",
+                    // }}
                   >
                     <FaRegFile color="rgb(107,114,128)" />
                     <p className="truncate">{file?.file}</p>

@@ -192,7 +192,7 @@ const FilesList = ({
         />
       )}
       {loading ? (
-        <div className="w-full relative p-2 flex flex-row justify-start gap-2 items-center border-t-1 border-t-gray-300 ">
+        <div className="w-full relative p-2 flex flex-row justify-start gap-2 items-center border-t-1 border-t-gray-300 dark:border-t-gray-700 ">
           <ColorRing
             type="ColorRing"
             colors={[
@@ -211,55 +211,57 @@ const FilesList = ({
         </div>
       ) : (
         <div
-          className="w-full relative p-2 flex flex-row justify-between items-center border-t-1 border-t-gray-300 hover:cursor-pointer hover:bg-gray-100"
+          className="w-full relative p-2 flex flex-row justify-between items-center border-t-1 border-t-gray-300 dark:border-t-gray-700 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
           onContextMenu={handleFileRightClick}
         >
           <div
-            className="flex flex-row items-center gap-2 w-[40%] justify-start"
+            className={`flex flex-row items-center gap-2 w-[40%] justify-start ${
+              file.type === "folder"
+                ? "text-[#54AEFF]"
+                : "text-[rgb(107,114,128)] dark:text-gray-300"
+            }`}
             onClick={handleFileClick}
           >
-            {file.type === "folder" ? (
-              <ImFolder color="#54AEFF" />
-            ) : (
-              <FaRegFile color="rgb(107,114,128)" />
-            )}
-            <p className="text-[14px] truncate">{file?.file}</p>
+            {file.type === "folder" ? <ImFolder /> : <FaRegFile />}
+            <p className="text-[14px] truncate dark:text-gray-300 text-gray-900">
+              {file?.file}
+            </p>
           </div>
 
-          <p className="text-[14px] w-[50%] flex flex-row justify-start">
+          <p className="text-[14px] w-[50%] flex flex-row justify-start dark:text-gray-300 text-gray-900">
             {`${addHours(file?.dateCreated, 0)}`}
           </p>
           {file.type === "file" ? (
-            <p className="text-[14px] w-[10%] flex flex-row justify-start">
+            <p className="text-[14px] w-[10%] flex flex-row justify-start dark:text-gray-300 text-gray-900">
               {`${Math.round(file?.size / 1000)} KB`}
             </p>
           ) : (
-            <p className="text-[14px] w-[10%] flex flex-row justify-start"></p>
+            <p className="text-[14px] w-[10%] flex flex-row justify-start dark:text-gray-300 text-gray-900"></p>
           )}
           {isFilePanel && (
             <div
-              className="absolute z-[11] top-[10px] right-[16px] w-[150px] bg-white rounded-[8px] p-3 flex flex-col gap-2 justify-center items-start"
+              className="absolute z-[11] top-[10px] right-[16px] w-[150px] bg-white dark:bg-gray-700 rounded-[4px] py-2 flex flex-col justify-center items-start"
               style={{
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
               }}
             >
               {enableAnalyze && (
                 <div
-                  className="flex flex-row items-center w-full hover:bg-gray-200 rounded-md py-1 px-2 gap-2"
+                  className="flex flex-row items-center w-full hover:bg-gray-200 dark:hover:bg-gray-800 py-1 px-2 gap-2 text-[rgb(107,114,128)] dark:text-gray-300"
                   onClick={() => {
                     handleGetReport(`${path}/${file?.file}`, file?.file);
                     setIsFilePanel(false);
                   }}
                 >
-                  <GoGraph size={14} color="rgb(107,114,128)" />
-                  <button className="text-blue-700 text-[12px] rounded-md flex flex-row justify-center items-center">
+                  <GoGraph size={14} />
+                  <button className="text-blue-700 dark:text-blue-300 text-[12px] rounded-md flex flex-row justify-center items-center">
                     Analyze
                   </button>
                 </div>
               )}
 
               <div
-                className="flex flex-row items-center w-full hover:bg-gray-200 rounded-md py-1 px-2 gap-2"
+                className="flex flex-row items-center w-full hover:bg-gray-200 dark:hover:bg-gray-800 py-1 px-2 gap-2 text-[rgb(107,114,128)] dark:text-gray-300"
                 onClick={() => {
                   window
                     .open(
@@ -272,40 +274,37 @@ const FilesList = ({
                   setIsFilePanel(false);
                 }}
               >
-                <MdDriveFileRenameOutline size={14} color="rgb(107,114,128)" />
-                <button className="text-green-700 text-[12px] rounded-md flex flex-row justify-center items-center">
+                <MdDriveFileRenameOutline size={14} />
+                <button className="text-green-700 dark:text-green-300 text-[12px] rounded-md flex flex-row justify-center items-center">
                   Get File
                 </button>
               </div>
 
               {enableDelete && (
                 <div
-                  className="flex flex-row items-center w-full hover:bg-gray-200 rounded-md py-1 px-2 gap-2"
+                  className="flex flex-row items-center w-full hover:bg-gray-200 dark:hover:bg-gray-800 py-1 px-2 gap-2 text-[rgb(107,114,128)] dark:text-gray-300"
                   onClick={() => {
                     handleDeleteFile(`${path}/${file?.file}`, file?.file);
                     setIsFilePanel(false);
                   }}
                 >
-                  <MdDelete size={14} color="rgb(107,114,128)" />
-                  <button className="text-red-600 text-[12px] rounded-md flex flex-row justify-center items-center">
+                  <MdDelete size={14} />
+                  <button className="text-red-600 dark:text-red-400 text-[12px] rounded-md flex flex-row justify-center items-center">
                     Delete File
                   </button>
                 </div>
               )}
               {enableRename && (
                 <div
-                  className="flex flex-row items-center w-full hover:bg-gray-200 rounded-md py-1 px-2 gap-2"
+                  className="flex flex-row items-center w-full hover:bg-gray-200 dark:hover:bg-gray-800 py-1 px-2 gap-2 text-[rgb(107,114,128)] dark:text-gray-300"
                   onClick={() => {
                     // handleRenameFile(`${path}/${file?.file}`, file?.file);
                     setIsRenameFolder(true);
                     setIsFilePanel(false);
                   }}
                 >
-                  <MdDriveFileRenameOutline
-                    size={14}
-                    color="rgb(107,114,128)"
-                  />
-                  <button className="text-violet-600 text-[12px] rounded-md flex flex-row justify-center items-center">
+                  <MdDriveFileRenameOutline size={14} />
+                  <button className="text-violet-600 dark:text-violet-400 text-[12px] rounded-md flex flex-row justify-center items-center">
                     Rename File
                   </button>
                 </div>

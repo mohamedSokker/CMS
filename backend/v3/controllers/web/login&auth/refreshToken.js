@@ -40,12 +40,16 @@ const handleRefreshToken = (req, res) => {
             Results = result.recordsets[0];
           });
         }
+        console.log(Results);
         // const allUsers = await getAllData("AdminUsersApp");
         user = {
           username: decoded.username,
           title: Results[0]["Title"],
           department: Results[0]["Department"],
-          roles: JSON.parse(Results[0]["UserRole"]),
+          roles:
+            Results[0]["UserRole"] && Results[0]["UserRole"] !== ""
+              ? JSON.parse(Results[0]["UserRole"])
+              : null,
           img: decoded.img,
         };
 

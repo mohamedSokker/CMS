@@ -31,7 +31,7 @@ const DataEntry = ({ targetData }) => {
         </div>
       )}
 
-      <div className="w-[100%] h-[100%] bg-gray-100 flex flex-row flex-wrap justify-start items-start overflow-auto">
+      <div className="w-[100%] h-[100%] bg-gray-100 dark:bg-background-logoColor dark:text-white flex flex-row flex-wrap justify-start items-start overflow-auto">
         {targetData &&
           targetData.length > 0 &&
           Object.keys(targetData[0].Fields).map((item, i) =>
@@ -95,7 +95,7 @@ const DataEntry = ({ targetData }) => {
                 <input
                   type="date"
                   value={data?.[item]}
-                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 text-[14px]"
+                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 dark:bg-gray-800 dark:text-white text-[14px]"
                   onChange={(e) =>
                     setData((prev) => ({
                       ...prev,
@@ -122,7 +122,7 @@ const DataEntry = ({ targetData }) => {
                   <input
                     type="text"
                     value={data?.[item]}
-                    className="w-full border-b-1 border-logoColor outline-none p-2 bg-gray-100 text-[14px]"
+                    className="w-full border-b-1 border-logoColor outline-none p-2 bg-gray-100 dark:bg-gray-800 text-[14px]"
                     onChange={(e) => {
                       setData((prev) => ({
                         ...prev,
@@ -141,7 +141,7 @@ const DataEntry = ({ targetData }) => {
                 <input
                   type="text"
                   value={data?.[item]}
-                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 text-[14px]"
+                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 dark:bg-gray-800 text-[14px]"
                   onChange={(e) =>
                     setData((prev) => ({
                       ...prev,
@@ -168,7 +168,7 @@ const DataEntry = ({ targetData }) => {
                   <input
                     type="text"
                     value={data?.[item]}
-                    className="w-full border-b-1 border-logoColor outline-none p-2 bg-gray-100 text-[14px]"
+                    className="w-full border-b-1 border-logoColor outline-none p-2 bg-gray-100 dark:bg-gray-800 text-[14px]"
                     onChange={(e) => {
                       setData((prev) => ({
                         ...prev,
@@ -197,7 +197,7 @@ const DataEntry = ({ targetData }) => {
                 )}
                 <input
                   type="text"
-                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 text-[14px]"
+                  className="w-[30vw] border-b-1 border-logoColor outline-none p-2 bg-gray-100 dark:bg-gray-800 text-[14px]"
                   value={data?.[item]}
                   onChange={(e) =>
                     setData((prev) => ({

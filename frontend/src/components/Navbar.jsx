@@ -13,6 +13,7 @@ import { useNavContext } from "../contexts/NavContext";
 import { logoColor } from "../BauerColors";
 import { ToggleMode, PageLoading } from "../components";
 import { AllTables } from "../data/AllTables";
+import userDefault from "../assets/noprofile.jpeg";
 
 // Custom Icon: LogoIcon
 const LogoIcon = () => (
@@ -143,6 +144,11 @@ const Navbar = () => {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
+
+    const theme = localStorage.getItem("backgroundTheme");
+    setCurrentMode(theme);
+    console.log(theme);
+
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
@@ -163,7 +169,7 @@ const Navbar = () => {
   return (
     <>
       {loading && <PageLoading message={`Backup Table ${currentTable}`} />}
-      <nav className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-900 shadow-md sticky top-0 z-[9] transition-colors duration-300">
+      <nav className="w-full max-h-[40px] flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-900 shadow-md sticky top-0 z-[9] transition-colors duration-300">
         {/* Left Side - Menu Button */}
         <div className="flex items-center gap-2">
           <NavButton
@@ -226,15 +232,19 @@ const Navbar = () => {
             title="Toggle Theme"
             icon={() =>
               currentMode === "Light" ? (
-                <FiSun className="text-yellow-500" />
-              ) : (
                 <FiMoon />
+              ) : (
+                <FiSun className="text-yellow-500" />
               )
             }
             customFunc={() => {
-              currentMode === "Light"
-                ? setCurrentMode("Dark")
-                : setCurrentMode("Light");
+              if (currentMode === "Light") {
+                setCurrentMode("Dark");
+                localStorage.setItem("backgroundTheme", "Dark");
+              } else {
+                setCurrentMode("Light");
+                localStorage.setItem("backgroundTheme", "Light");
+              }
             }}
           />
 
@@ -242,9 +252,15 @@ const Navbar = () => {
           <TooltipComponent content="Profile" position="BottomCenter">
             <div className="flex items-center gap-2 cursor-pointer group">
               <img
-                src={`${imgPath}`}
-                alt="profile-pic"
-                className="w-8 h-8 rounded-full border-2 border-logoColor group-hover:shadow-md transition-shadow duration-200"
+                src={`${import.meta.env.VITE_BASE_URL}/${usersData[0]?.img}`}
+                alt="Profile"
+                className="w-8 h-8 object-contain rounded-full border-2 border-logoColor blur-sm transition-all duration-300 ease-in-out"
+                onLoad={(e) => e.target.classList.remove("blur-sm")}
+                onError={(e) => {
+                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.src = userDefault;
+                  e.target.classList.remove("blur-sm");
+                }}
               />
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className="text-xs font-medium text-gray-500 dark:text-gray-300 truncate max-w-[100px]">

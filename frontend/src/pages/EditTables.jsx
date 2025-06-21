@@ -32,6 +32,7 @@ const EditTables = ({ socket }) => {
   const [loading, setLoading] = useState(true);
   const [selectedRow, setSelectedRow] = useState({});
   const [selectedIndex, setSelectedIndex] = useState(null);
+
   const { closeSmallSidebar, usersData, token, setErrorData, currentMode } =
     useNavContext();
   const axiosPrivate = useAxiosPrivate();

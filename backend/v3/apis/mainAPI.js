@@ -71,6 +71,29 @@ async function performQuery(pool, table, query) {
     });
 }
 
+const createTable = async (pool, table, schema) => {
+  console.log(`Try Create Tables`);
+  let query = `IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='${table}' AND xtype='U')
+               BEGIN CREATE TABLE "${table}" (`;
+  Object.keys(schema).map((item) => {
+    query += `"${item}" ${schema[item].databaseType},`;
+  });
+  query = query.slice(0, -1);
+  query += ") END";
+  console.log(query);
+  return pool
+    .request()
+    .query(query)
+    .then((result) => {
+      const memoryUsage = process.memoryUsage().rss;
+      console.log(` ${memoryUsage / (1024 * 1024)} MB`);
+      return result;
+    })
+    .catch((err) => {
+      console.error(`Error Peforming Query On table: ${table}`, err);
+    });
+};
+
 const addVariables = (table, schema) => {
   return (req, res, next) => {
     req.table = table;
@@ -85,26 +108,39 @@ const tablesV2EndPoint = async (app) => {
     .then((pool) => {
       let promise = Promise.resolve();
 
-      tables.forEach((item) => {
-        promise = promise.then(() => {
-          app.use(
-            `/api/v3/${item.name}`,
-            addVariables(item.name, item.schema),
-            route
-          );
-          app.get(`/api/v3/${item.name}Schema`, async (req, res) => {
-            try {
-              return res.status(200).json(item.schema);
-            } catch (error) {
-              return res.status(500).json({ message: error.message });
-            }
-          });
-          return fetchDataFromTable(pool, item.name, null, item.schema);
-        });
-      });
-
       return (
         promise
+          .then(() => {
+            [
+              ...tables,
+              { name: "AdminUsersApp", schema: AdminUsersAppSchema },
+            ].forEach((item) => {
+              promise = promise.then(() => {
+                return createTable(pool, item?.name, item?.schema);
+              });
+            });
+            return promise;
+          })
+          .then(() => {
+            tables.forEach((item) => {
+              promise = promise.then(() => {
+                app.use(
+                  `/api/v3/${item.name}`,
+                  addVariables(item.name, item.schema),
+                  route
+                );
+                app.get(`/api/v3/${item.name}Schema`, async (req, res) => {
+                  try {
+                    return res.status(200).json(item.schema);
+                  } catch (error) {
+                    return res.status(500).json({ message: error.message });
+                  }
+                });
+                return fetchDataFromTable(pool, item.name, null, item.schema);
+              });
+            });
+            return promise;
+          })
           // .then(() => {
           //   return fetchDataFromTable(
           //     pool,

@@ -85,14 +85,14 @@ const RenameFolderCard = ({
         style={{ backdropFilter: "blur(2px)", opacity: 0.8 }}
       ></div>
       <div
-        className={`md:w-[500px] w-[90%] md:h-[180px] h-[80%] flex flex-col justify-between items-center bg-white relative z-[1001] mainContent overflow-y-scroll`}
+        className={`md:w-[500px] w-[90%] md:h-[180px] h-[80%] flex flex-col justify-between items-center bg-white dark:bg-gray-700 dark:text-white relative z-[1001] mainContent overflow-y-scroll`}
         style={{
           animation: !isCanceled
             ? "animate-in 0.5s ease-in-out"
             : "animate-out 0.5s ease-in-out",
         }}
       >
-        <div className="flex flex-row w-full p-2 px-6 justify-between">
+        <div className="flex h-[10%] flex-row w-full p-2 px-2 justify-end">
           <div>
             <TooltipComponent
               content="close"
@@ -100,7 +100,7 @@ const RenameFolderCard = ({
               className="flex items-center"
             >
               <button
-                className="hover:cursor-pointer p-2 hover:rounded-full hover:bg-gray-300 aspect-square flex justify-center items-center"
+                className="hover:cursor-pointer p-1 text-[10px] rounded-full bg-gray-300 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-900  w-[25px] aspect-square flex justify-center items-center"
                 onClick={() => {
                   setIsCanceled(true);
                   setTimeout(() => {
@@ -115,9 +115,11 @@ const RenameFolderCard = ({
         </div>
 
         <div className="flex flex-col gap-2 w-full px-8">
-          <p className="font-[400] text-[12px] text-gray-500">Folder Name</p>
+          <p className="font-[400] text-[12px] text-gray-500 dark:text-gray-300">
+            Folder Name
+          </p>
           <input
-            className="w-full border-b-1 border-gray-300 outline-none focus:border-red-400 font-[400] text-[12px] pl-4"
+            className="w-full border-b-1 border-gray-300 dark:border-gray-800 dark:bg-gray-700 outline-none focus:border-red-400 font-[400] text-[12px] pl-4"
             type="text"
             value={newFileName}
             onChange={(e) => setNewFileName(e.target.value)}

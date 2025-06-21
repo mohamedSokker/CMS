@@ -41,12 +41,12 @@ const Dropdown = ({
   // console.log(label, fieldsAddData[label]);
 
   return (
-    <div className="p-2 flex flex-col justify-center items-center bg-gray-100">
+    <div className="p-2 flex flex-col justify-center items-center bg-gray-100 dark:bg-background-logoColor">
       <p className="w-full h-6 text-[14px] text-gray-400 flex flex-row justify-start">{`Select ${label}`}</p>
       <div className={`flex flex-row gap-2 items-center relative`}>
         {/* <p style={{ width: "40%" }}>{label}</p> */}
         <select
-          className="p-2 w-[30vw] bg-gray-100 border-b-1 border-logoColor appearance-none text-[14px]"
+          className="p-2 w-[30vw] bg-gray-100 dark:bg-gray-800 border-b-1 border-logoColor appearance-none text-[14px] outline-none"
           style={{ color: data[label] === "" ? "rgb(156 163 175)" : "black" }}
           onClick={handleClick}
           onChange={handleChange}

@@ -67,7 +67,8 @@ const getAllTables = async (token) => {
   const tableData = data?.data;
   for (let j = 0; j < tableData.length; j++) {
     console.log(tableData[j]);
-    allTables.push(tableData[j].TABLE_NAME);
+    if (!allTables?.includes(tableData[j].TABLE_NAME))
+      allTables.push(tableData[j].TABLE_NAME);
   }
 
   allTables?.sort((a, b) => {

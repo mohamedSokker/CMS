@@ -21,10 +21,10 @@ import { Link } from "react-router-dom";
 import Table from "../Components/Table";
 import RenameFolderCard from "../Components/RenameFolderCard";
 import TableBtn from "../Components/TableBtn";
-import SuccessCard from "../../Accessories/SuccessCard";
-import ConfirmDeleteCard from "../../Accessories/ConfirmDeleteCard";
-import NotificationCard from "../../Accessories/NotificationCard";
-import InfoCard from "../../Accessories/InfoCard";
+// import SuccessCard from "../../Accessories/SuccessCard";
+// import ConfirmDeleteCard from "../../Accessories/ConfirmDeleteCard";
+// import NotificationCard from "../../Accessories/NotificationCard";
+// import InfoCard from "../../Accessories/InfoCard";
 
 const ManageFiles = ({
   absPath,
@@ -74,7 +74,7 @@ const ManageFiles = ({
   const [searchedItems, setSearchedItems] = useState([]);
   const [searchedFiles, setSearchedFiles] = useState([]);
 
-  const [isCard, setIsCard] = useState(false);
+  // const [isCard, setIsCard] = useState(false);
 
   // console.log(searchedItems);
 
@@ -229,7 +229,7 @@ const ManageFiles = ({
   return (
     <>
       {loading && <PageLoading message={message} />}
-      {isCard && <InfoCard message={`Data Sent`} />}
+      {/* {isCard && <InfoCard message={`Data Sent`} />} */}
       {enableUpload && isUpload && (
         <UploadCard
           setIsUploadCard={setIsUploadCard}
@@ -282,7 +282,7 @@ const ManageFiles = ({
         id="cont"
       >
         <div
-          className="w-[25%] h-full border-r-1 border-gray-300 flex flex-col gap-2 items-start sticky"
+          className="w-[25%] h-full border-r-1 border-gray-300 flex flex-col gap-2 items-start sticky dark:text-gray-300"
           onClick={() => setIsUploadPanel(false)}
         >
           <div className="w-full text-[16px] font-[700] flex flex-row justify-start items-center px-2">
@@ -293,15 +293,15 @@ const ManageFiles = ({
               className="w-full flex flex-row items-center"
               onSubmit={handleSearch}
             >
-              <div className="absolute left-4">
-                <IoSearchOutline size={14} color="rgb(107,114,128)" />
+              <div className="absolute left-4 text-[rgb(107,114,128)] dark:text-gray-300">
+                <IoSearchOutline size={14} />
               </div>
               <input
                 type="text"
                 placeholder="Search"
                 value={searchData}
                 onChange={(e) => setSearchData(e.target.value)}
-                className="px-6 py-1 text-[12px] outline-none w-full border-1 border-gray-300 rounded-md"
+                className="px-6 py-1 text-[12px] outline-none w-full border-1 border-gray-300 dark:border-gray-800 rounded-md dark:bg-gray-700 dark:text-gray-300 dark:placeholder:text-gray-200"
               />
             </form>
           </div>
@@ -330,13 +330,17 @@ const ManageFiles = ({
                 ) : (
                   <div
                     key={i}
-                    className="w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 hover:cursor-pointer"
+                    className={`w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-gray-300 hover:cursor-pointer ${
+                      searchedItems.includes(file?.file)
+                        ? "bg-[rgb(209,213,219)] dark:bg-gray-800"
+                        : ""
+                    }`}
                     onClick={() => {}}
-                    style={{
-                      backgroundColor: searchedItems.includes(file?.file)
-                        ? "rgb(209,213,219)"
-                        : "",
-                    }}
+                    // style={{
+                    //   backgroundColor: searchedItems.includes(file?.file)
+                    //     ? "rgb(209,213,219)"
+                    //     : "",
+                    // }}
                   >
                     <FaRegFile color="rgb(107,114,128)" />
                     <p className="truncate">{file?.file}</p>
@@ -347,7 +351,7 @@ const ManageFiles = ({
         </div>
         <div className="w-[75%] px-1 h-full flex flex-col gap-2">
           <div className="w-full h-[32px] flex flex-row justify-between">
-            <div className="h-full text-[16px] font-[700] text-[#0969DA] flex flex-row gap-4 items-center">
+            <div className="h-full text-[16px] font-[700] text-[#0969DA] dark:text-gray-500 flex flex-row gap-4 items-center">
               <p
                 className="hover:underline hover:cursor-pointer"
                 onClick={handleBack}
@@ -364,7 +368,7 @@ const ManageFiles = ({
             <div className="h-full flex flex-row gap-2 items-center text-[14px]">
               {enableTableBtn && (
                 <div
-                  className="h-full p-3 flex flex-row items-center justify-center bg-gray-100 border-1 border-gray-300 hover:bg-gray-200 rounded-md hover:cursor-pointer relative"
+                  className="h-full p-3 flex flex-row items-center justify-center bg-gray-100 dark:bg-gray-700 dark:border-gray-800 dark:text-gray-300 border-1 border-gray-300 hover:bg-gray-200 rounded-md hover:cursor-pointer relative"
                   onClick={() => setIsTableBtn(true)}
                 >
                   <p>Show Table</p>
@@ -372,34 +376,34 @@ const ManageFiles = ({
               )}
 
               <div
-                className="h-full w-[100px] flex flex-row p-1 pl-3 gap-2 items-center justify-center bg-gray-100 border-1 border-gray-300 hover:bg-gray-200 rounded-md hover:cursor-pointer relative"
+                className="h-full w-[100px] flex flex-row p-1 pl-3 gap-2 items-center justify-center bg-gray-100 dark:bg-gray-700 dark:border-gray-800 dark:text-gray-300 border-1 border-gray-300 hover:bg-gray-200 rounded-md hover:cursor-pointer relative"
                 onClick={() => setIsUploadPanel((prev) => !prev)}
               >
                 <p className=" font-[400]">Add File</p>
                 <MdArrowDropDown size={14} />
                 {(enableCreateFolder || enableUpload) && isUploadPanel && (
                   <div
-                    className="absolute z-[11] top-[35px] right-0 w-[150px] bg-white rounded-[8px] p-3 flex flex-col justify-center items-center"
+                    className="absolute z-[11] top-[35px] right-0 w-[150px] bg-white dark:bg-gray-700 rounded-[8px] p-3 flex flex-col justify-center items-center"
                     style={{
                       boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
                     }}
                   >
                     {enableUpload && (
                       <button
-                        className="w-full hover:bg-gray-200 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
+                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-800 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
                         onClick={() => setIsUploadCard(true)}
                       >
-                        <MdOutlineFileUpload color="rgb(107,114,128)" />
+                        <MdOutlineFileUpload />
                         <p>Upload Files</p>
                       </button>
                     )}
 
                     {enableCreateFolder && (
                       <button
-                        className="w-full hover:bg-gray-200 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
+                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-800 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
                         onClick={() => setIsCreateFolder(true)}
                       >
-                        <ImFolder color="rgb(107,114,128)" />
+                        <ImFolder />
                         <p>Create Folder</p>
                       </button>
                     )}
@@ -407,25 +411,25 @@ const ManageFiles = ({
                 )}
               </div>
               <div
-                className="h-full border-1 bg-gray-100 border-gray-300 hover:bg-gray-200 rounded-md flex justify-center items-center p-1 aspect-square hover:cursor-pointer"
-                onClick={() => setIsCard(true)}
+                className="h-full border-1 bg-gray-100 dark:bg-gray-700 dark:border-gray-800 dark:text-gray-300 border-gray-300 hover:bg-gray-200 rounded-md flex justify-center items-center p-1 aspect-square hover:cursor-pointer"
+                // onClick={() => setIsCard(true)}
               >
                 <BsThreeDots size={14} />
               </div>
             </div>
           </div>
           <div
-            className="w-full flex flex-col border-1 border-gray-300 rounded-md"
+            className="w-full flex flex-col border-1 border-gray-300 dark:border-gray-700 rounded-md"
             onClick={() => setIsUploadPanel(false)}
           >
-            <div className="w-full p-2 flex flex-row justify-between items-center bg-gray-100 text-[14px]">
-              <p className="text-gray-400 font-[600] w-[40%] flex flex-row justify-start">
+            <div className="w-full p-2 flex flex-row justify-between items-center bg-gray-100 dark:bg-gray-700 text-[14px]">
+              <p className="text-gray-400 dark:text-gray-300 font-[600] w-[40%] flex flex-row justify-start">
                 Name
               </p>
-              <p className="text-gray-400 font-[600] w-[50%] flex flex-row justify-start">
+              <p className="text-gray-400 dark:text-gray-300 font-[600] w-[50%] flex flex-row justify-start">
                 Date Created
               </p>
-              <p className="text-gray-400 font-[600] w-[10%] flex flex-row justify-start">
+              <p className="text-gray-400 dark:text-gray-300 font-[600] w-[10%] flex flex-row justify-start">
                 Size
               </p>
             </div>

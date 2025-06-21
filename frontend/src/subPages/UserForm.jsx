@@ -79,6 +79,7 @@ const UserForm = ({ handleSaveUser, getChildData, userData }) => {
       try {
         setLoading(true);
         const data = await allData(token);
+        console.log(data);
         setAllDatas(data);
         setLoading(false);
       } catch (err) {
@@ -192,7 +193,7 @@ const UserForm = ({ handleSaveUser, getChildData, userData }) => {
                   <img
                     src={URL.createObjectURL(image)}
                     alt="Preview"
-                    className="h-full w-full object-cover rounded-md"
+                    className="h-full w-full object-contain rounded-md"
                   />
                   <button
                     onClick={(e) => {

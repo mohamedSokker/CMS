@@ -17,12 +17,12 @@ async function searchFile(dir, searchedData, result) {
     if (fileStat.isDirectory()) {
       if (file.toLowerCase().includes(searchedData.toLowerCase())) {
         // if the file is a match, print it
-        result.push(filePath.replace(dir, ""));
+        result.push(filePath);
       }
       searchFile(filePath, searchedData, result);
     } else if (file.toLowerCase().includes(searchedData.toLowerCase())) {
       // if the file is a match, print it
-      result.push(filePath.replace(dir, ""));
+      result.push(filePath);
 
       //   console.log(filePath);
     }

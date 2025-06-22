@@ -214,7 +214,7 @@ const ManageFiles = ({
         result.push(item.slice(1));
       });
       setSearchedItems(result);
-      console.log(result);
+      // console.log(result);
       setLoading(false);
     } catch (err) {
       console.log(

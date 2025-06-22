@@ -25,19 +25,19 @@ const Folder = ({
 }) => {
   const [isFolderOpen, setIsFolderOpen] = useState(false);
   const [files, setFiles] = useState(null);
-  const [path, setPath] = useState("");
   const [isHovered, setIsHovered] = useState(false);
 
   const { setErrorData } = useNavContext();
 
+  const path = `${basePath}/${filename}`;
+
   useEffect(() => {
-    searchedItems.map((item) => {
+    if (!searchedItems.length) return;
+    searchedItems.map(async (item) => {
       const filesArray = item.split("/");
-      console.log(path);
+
       if (
-        filesArray.includes(filename)
-        // ||
-        // files?.some((file) => filesArray?.includes(file?.file))
+        filesArray.some((p) => p.toLowerCase().includes(filename.toLowerCase()))
       ) {
         setSearchedFiles((prev) =>
           Array.from(new Set([...prev, filesArray[filesArray.length - 1]]))
@@ -48,10 +48,6 @@ const Folder = ({
       }
     });
   }, [searchedItems, path]);
-
-  useEffect(() => {
-    setPath(`${basePath}/${filename}`);
-  }, [filename]);
 
   useEffect(() => {
     if (currentPath === path) {
@@ -86,11 +82,10 @@ const Folder = ({
         method: "POST",
         data: JSON.stringify({
           fullpath: path,
-          pathabs: `${absPath}/${path}`,
+          pathabs: `${fullPath}`,
         }),
       });
       setFiles(response?.data?.data);
-      // console.log(response?.data?.data);
       return response?.data?.data;
     } catch (err) {
       setErrorData((prev) => [
@@ -110,29 +105,26 @@ const Folder = ({
   const openArrow = async () => {
     if (!isFolderOpen) {
       setIsFolderOpen(true);
-      await getFiles(`${path}`);
+      await getFiles(`${absPath}/${path}`);
     }
   };
 
   const handleArrowClick = async () => {
     setIsFolderOpen((prev) => !prev);
     if (!isFolderOpen) {
-      await getFiles(path);
-      // setPath(`${path}`);
+      await getFiles(`${absPath}/${path}`);
     }
   };
 
   const handleFolderClick = async () => {
     setCurrentFiles(null);
     setCurrentPath(path);
-    const currentFiles = await getFiles(path);
+    const currentFiles = await getFiles(`${absPath}/${path}`);
     setCurrentFiles(currentFiles);
-    // setFiles(currentFiles);
-    // console.log(path);
   };
 
   useEffect(() => {
-    getFiles();
+    getFiles(`${absPath}/${path}`);
   }, []);
 
   return (
@@ -140,13 +132,9 @@ const Folder = ({
       <div
         className={`flex flex-row items-center rounded-md ${
           isHovered
-            ? "bg-[rgb(229,231,235)] dark:bg-gray-800 cursor-pointer"
+            ? "bg-[rgb(229,231,235)] dark:bg-gray-800  cursor-pointer"
             : "cursor-default"
         }`}
-        // style={{
-        //   backgroundColor: isHovered ? "rgb(229,231,235)" : "",
-        //   cursor: isHovered ? "pointer" : "default",
-        // }}
       >
         <button
           className="py-2 px-[2px] hover:bg-gray-300 dark:hover:bg-gray-700 rounded-l-[4px] relative z-[2]"
@@ -220,18 +208,17 @@ const Folder = ({
                 ) : (
                   <div
                     key={i}
-                    className={`w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer ${
+                    className={`w-full relative px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer ${
                       searchedFiles.includes(file?.file)
                         ? "bg-[rgb(209,213,219)] dark:bg-gray-800"
                         : ""
                     }`}
                     onClick={() => {}}
-                    // style={{
-                    //   backgroundColor: searchedFiles.includes(file?.file)
-                    //     ? "rgb(209,213,219)"
-                    //     : "",
-                    // }}
                   >
+                    {searchedFiles.includes(file?.file) && (
+                      <div className="w-0 h-full absolute -left-[0px] top-0 border-[2px] border-blue-800 dark:border-blue-500"></div>
+                    )}
+
                     <FaRegFile color="rgb(107,114,128)" />
                     <p className="truncate">{file?.file}</p>
                   </div>

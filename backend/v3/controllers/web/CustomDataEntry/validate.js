@@ -15,7 +15,7 @@ const regix = {
   "decimal(8,1)": /^\d{1,7}(\.\d{1,})?$/,
   decimal82: /^\d{1,7}(\.\d{2})?$/,
   "decimal(8,2)": /^\d{1,7}(\.\d{1,})?$/,
-  text: /^[a-zA-Z0-9\s:,"{}[\]]*$/,
+  text: /^.{0,255}$/,
 };
 
 const validateData = async (data, savedData, targetData) => {

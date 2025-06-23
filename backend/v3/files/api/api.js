@@ -28,6 +28,8 @@ const filesEndPoints = (app) => {
     res.sendFile(filePath);
   });
 
+  app.get("/Bauereg/DataEntryFiles/*", FileSystem);
+
   app.get("/AppGetFiles", (req, res) => {
     try {
       let basePath = process.env.BASE_PATH;

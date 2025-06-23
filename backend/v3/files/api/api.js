@@ -2,6 +2,8 @@ const path = require("path");
 require("dotenv").config();
 const fs = require("fs");
 
+const FileSystem = require("../fileSystem");
+
 function replaceAllChar(string, char1, char2) {
   while (string.includes(char1)) {
     string = string.replace(char1, char2);

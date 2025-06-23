@@ -67,7 +67,7 @@ const MainArea = () => {
 
   return (
     <div
-      className="flex flex-grow h-full relative bg-gray-100 dark:bg-background-logoColor z-[100]"
+      className="flex flex-grow h-full relative bg-gray-100 dark:bg-gray-800 z-[100]"
       id="Main-Area"
       // onMouseMove={mouseMoveMove}
       // onMouseUp={mouseUpMove}

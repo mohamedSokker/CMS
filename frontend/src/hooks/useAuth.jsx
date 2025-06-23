@@ -44,7 +44,7 @@ const RequiredAuth = ({ allowedRole }) => {
           <Sidebar />
         </div>
         {errorData.length > 0 && (
-          <div className="fixed dark:bg-[rgb(0,0,0,0.7)] dark:text-gray-500 z-[11] left-0 bottom-4 flex flex-col gap-4">
+          <div className="fixed dark:bg-gray-800 dark:text-gray-500 z-[11] left-0 bottom-4 flex flex-col gap-4">
             {errorData.map((data, i) => (
               <Error key={i} data={data} setErrorData={setErrorData} ind={i} />
             ))}

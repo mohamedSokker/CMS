@@ -31,7 +31,7 @@ const DataEntry = ({ targetData }) => {
         </div>
       )}
 
-      <div className="w-[100%] h-[100%] bg-gray-100 dark:bg-background-logoColor dark:text-white flex flex-row flex-wrap justify-start items-start overflow-auto">
+      <div className="w-[100%] h-[100%] bg-gray-100 dark:bg-gray-800 dark:text-white flex flex-row flex-wrap justify-start items-start overflow-auto">
         {targetData &&
           targetData.length > 0 &&
           Object.keys(targetData[0].Fields).map((item, i) =>

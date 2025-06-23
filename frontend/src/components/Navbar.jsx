@@ -254,7 +254,7 @@ const Navbar = () => {
               <img
                 src={`${import.meta.env.VITE_BASE_URL}/${usersData[0]?.img}`}
                 alt="Profile"
-                className="w-8 h-8 object-contain rounded-full border-2 border-logoColor blur-sm transition-all duration-300 ease-in-out"
+                className="w-8 h-8 object-cover rounded-full border-2 border-logoColor blur-sm transition-all duration-300 ease-in-out"
                 onLoad={(e) => e.target.classList.remove("blur-sm")}
                 onError={(e) => {
                   e.target.onerror = null; // Prevent infinite loop

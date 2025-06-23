@@ -70,6 +70,7 @@ const useDataEntry = ({ targetData }) => {
           setLoading(false);
         }
       } catch (err) {
+        console.log(err);
         setErrorData((prev) => [
           ...prev,
           err?.response?.data?.message

@@ -48,11 +48,11 @@ const Dropdown = ({
 
   return (
     <div
-      className="w-full p-2 flex flex-col justify-center items-center bg-gray-100"
+      className="w-full p-2 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-800 dark:text-white"
       style={{ height: multiple ? "100%" : "auto" }}
     >
       {/* Label */}
-      <p className="w-full h-6 text-[14px] text-gray-400 flex flex-row justify-start">
+      <p className="w-full h-6 text-[14px] text-gray-400 flex flex-row justify-start dark:text-gray-200">
         {`Select ${label}`}
       </p>
 
@@ -60,9 +60,13 @@ const Dropdown = ({
       <div className="relative w-full h-full">
         {/* Native Select */}
         <select
-          className="p-2 w-full bg-gray-100 border-b-1 outline-none border-blue-500 appearance-none text-[14px] focus:border-[rgb(248,113,113)]"
+          className={`p-2 w-full bg-gray-100 dark:bg-gray-900 border-b-1 outline-none border-blue-500 appearance-none text-[14px] focus:border-[rgb(248,113,113)] ${
+            data[label] === "text-[rgb(156,163,175)] dark:text-white"
+              ? ""
+              : "text-black dark:text-white"
+          }`}
           style={{
-            color: data[label] === "" ? "rgb(156 163 175)" : "black",
+            // color: data[label] === "" ? "rgb(156 163 175)" : "black",
             scrollbarWidth: "none", // Firefox
             height: multiple ? "100%" : "auto",
           }}
@@ -73,14 +77,19 @@ const Dropdown = ({
           disabled={datasLoading}
         >
           {!multiple && (
-            <option hidden selected disabled>
+            <option hidden selected disabled className="dark:text-white">
               {""}
             </option>
           )}
 
           {localData &&
             localData.map((item, i) => (
-              <option key={i} value={item[column]} onClick={handleChange}>
+              <option
+                key={i}
+                value={item[column]}
+                onClick={handleChange}
+                className="dark:text-white"
+              >
                 {item[column]}
               </option>
             ))}

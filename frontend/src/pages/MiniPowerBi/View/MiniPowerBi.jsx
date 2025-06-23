@@ -519,7 +519,7 @@ const MiniPowerBi = () => {
   //     return (
   //       <div
   //         id="Main--Page"
-  //         className=" dark:bg-background-logoColor relative bg-white overflow-x-hidden"
+  //         className=" dark:bg-gray-800 relative bg-white overflow-x-hidden"
   //         style={{
   //           width: "100vw",
   //           height: "92vh",
@@ -547,7 +547,7 @@ const MiniPowerBi = () => {
       </PowerPiInitContextProvider>
     </PowerPiDataContextProvider>
     // <div
-    //   className="w-full flex flex-col px-4 bg-gray-100 Main--Page dark:bg-background-logoColor h-full relative text-[14px]"
+    //   className="w-full flex flex-col px-4 bg-gray-100 Main--Page dark:bg-gray-800 h-full relative text-[14px]"
     //   onClick={closeSmallSidebar}
     // >
     //   {loading && <PageLoading message={message} />}

@@ -305,7 +305,7 @@ const ManageFiles = ({
               />
             </form>
           </div>
-          <div className="w-full h-full text-[14px] px-2 flex flex-col items-start overflow-y-scroll gap-2">
+          <div className="w-full h-full text-[14px] px-3 flex flex-col items-start overflow-y-scroll gap-2">
             {files &&
               files.map((file, i) =>
                 file.type === "folder" ? (
@@ -330,7 +330,7 @@ const ManageFiles = ({
                 ) : (
                   <div
                     key={i}
-                    className={`w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-gray-300 hover:cursor-pointer ${
+                    className={`w-full px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-gray-300 hover:cursor-pointer ${
                       searchedItems.includes(file?.file)
                         ? "bg-[rgb(209,213,219)] dark:bg-gray-800"
                         : ""
@@ -390,7 +390,7 @@ const ManageFiles = ({
                   >
                     {enableUpload && (
                       <button
-                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-800 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
+                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-700 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
                         onClick={() => setIsUploadCard(true)}
                       >
                         <MdOutlineFileUpload />
@@ -400,7 +400,7 @@ const ManageFiles = ({
 
                     {enableCreateFolder && (
                       <button
-                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-800 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
+                        className="w-full hover:bg-gray-200 dark:hover:bg-gray-700 text-[rgb(107,114,128)] dark:text-gray-300 flex flex-row items-center py-1 px-2 gap-2 rounded-md"
                         onClick={() => setIsCreateFolder(true)}
                       >
                         <ImFolder />

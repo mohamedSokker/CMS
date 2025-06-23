@@ -57,7 +57,7 @@ const ManageMiniPowerBi = () => {
     </PowerPiDataContextProvider>
 
     // <div
-    //   className="w-full flex flex-col bg-gray-100 dark:bg-background-logoColor h-full relative text-[14px]"
+    //   className="w-full flex flex-col bg-gray-100 dark:bg-gray-800 h-full relative text-[14px]"
     //   onClick={closeSmallSidebar}
     //   onMouseMove={mouseMoveMove}
     //   onMouseUp={mouseUpMove}

@@ -275,7 +275,7 @@ const TablesRelations = () => {
           setCategoryCount={setCategoryCount}
         />
         <ReactFlow
-          className="flex flex-grow bg-[#F7F9FB] dark:bg-background-logoColor"
+          className="flex flex-grow bg-[#F7F9FB] dark:bg-gray-800"
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}

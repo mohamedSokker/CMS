@@ -42,12 +42,10 @@ const UnAuthorized = () => {
           </div>
         )}
         {/* Navbar + MainPage */}
-        <div
-          className={`dark:bg-background-logoColor bg-main-bg min-h-screen w-full `}
-        >
+        <div className={`dark:bg-gray-800 bg-main-bg min-h-screen w-full `}>
           {/* Navbar */}
           <div
-            className="fixed md:static flex dark:bg-background-logoColor bg-gray-100 items-center h-[8vh] navbar"
+            className="fixed md:static flex dark:bg-gray-800 bg-gray-100 items-center h-[8vh] navbar"
             style={{ width: "100vw" }}
           >
             <Navbar />
@@ -56,7 +54,7 @@ const UnAuthorized = () => {
           {/* Main page */}
           <div
             id="Main--Page"
-            className=" dark:bg-background-logoColor relative bg-white overflow-x-hidden"
+            className=" dark:bg-gray-800 relative bg-white overflow-x-hidden"
             style={{
               width: "100vw",
               height: "92vh",

@@ -15,7 +15,7 @@ const Error = ({ data, setErrorData, ind }) => {
 
   return (
     <div
-      className="px-4"
+      className="px-4 dark:bg-gray-800"
       style={
         !isTime
           ? {
@@ -30,7 +30,7 @@ const Error = ({ data, setErrorData, ind }) => {
     >
       <div className="bg-red-700 p-2 px-8 rounded-md flex flex-col relative justify-center items-center">
         <p className=" text-white">{data}</p>
-        <div className=" bg-gray-400 h-[3px] absolute bottom-0 left-0 animate-in-out"></div>
+        <div className=" bg-gray-400 dark:bg-gray-600 h-[3px] absolute bottom-0 left-0 animate-in-out"></div>
       </div>
     </div>
   );

@@ -193,7 +193,7 @@ const UserForm = ({ handleSaveUser, getChildData, userData }) => {
                   <img
                     src={URL.createObjectURL(image)}
                     alt="Preview"
-                    className="h-full w-full object-contain rounded-md"
+                    className="h-full w-full object-cover rounded-md"
                   />
                   <button
                     onClick={(e) => {

@@ -17,7 +17,7 @@ const ManageUsers = () => {
   };
   return (
     <div
-      className="p-2 md:p-10 bg-white rounded-xl Main--Content flex items-center justify-center dark:bg-background-logoColor"
+      className="p-2 md:p-10 bg-white rounded-xl Main--Content flex items-center justify-center dark:bg-gray-800"
       onClick={closeSmallSidebar}
     >
       {renderPage()}

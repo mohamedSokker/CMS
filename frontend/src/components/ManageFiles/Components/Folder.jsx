@@ -132,12 +132,12 @@ const Folder = ({
       <div
         className={`flex flex-row items-center rounded-md ${
           isHovered
-            ? "bg-[rgb(229,231,235)] dark:bg-gray-800  cursor-pointer"
+            ? "bg-[rgb(229,231,235)] dark:bg-gray-700  cursor-pointer"
             : "cursor-default"
         }`}
       >
         <button
-          className="py-2 px-[2px] hover:bg-gray-300 dark:hover:bg-gray-700 rounded-l-[4px] relative z-[2]"
+          className="py-2 px-[2px] hover:bg-gray-300 dark:hover:bg-gray-600 rounded-l-[4px] relative z-[2]"
           onClick={handleArrowClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -167,7 +167,7 @@ const Folder = ({
       {isFolderOpen && (
         <div className="border-l-1 border-gray-300 dark:border-gray-700 w-full flex flex-col">
           {!files ? (
-            <div className="w-full h-full px-2 flex flex-row items-center justify-start">
+            <div className="w-full h-full px-3 flex flex-row items-center justify-start">
               <ColorRing
                 type="ColorRing"
                 colors={[
@@ -185,7 +185,7 @@ const Folder = ({
               </p>
             </div>
           ) : (
-            <div className="w-full h-full px-2 flex flex-col items-start">
+            <div className="w-full h-full px-3 flex flex-col items-start">
               {files.map((file, i) =>
                 file.type === "folder" ? (
                   <Folder
@@ -208,9 +208,9 @@ const Folder = ({
                 ) : (
                   <div
                     key={i}
-                    className={`w-full relative px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 hover:cursor-pointer ${
+                    className={`w-full relative px-4 py-1 flex flex-row gap-2 justify-start items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 hover:cursor-pointer ${
                       searchedFiles.includes(file?.file)
-                        ? "bg-[rgb(209,213,219)] dark:bg-gray-800"
+                        ? "bg-[rgb(209,213,219)] dark:bg-gray-700"
                         : ""
                     }`}
                     onClick={() => {}}

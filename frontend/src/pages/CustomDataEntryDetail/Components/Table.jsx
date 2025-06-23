@@ -117,7 +117,7 @@ const Table = ({ targetData }) => {
   if (isEdit)
     return <EditDataEntry editData={editData} targetData={targetData} />;
   return (
-    <div className="w-full flex flex-col gap-2 p-2 bg-white rounded-xl Main--Page dark:bg-background-logoColor h-full">
+    <div className="w-full flex flex-col gap-2 p-2 bg-white rounded-xl Main--Page dark:bg-gray-800 h-full">
       {pageLoading && <PageLoading message={`Sending Data...`} />}
       {/* <div className="flex flex-row justify-end items-center ">
         <div

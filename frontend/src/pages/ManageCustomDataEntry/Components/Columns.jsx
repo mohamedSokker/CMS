@@ -66,6 +66,7 @@ const Columns = ({
     }
   };
   console.log(tableColumns);
+  console.log(currentColumns);
   return (
     <div
       className="w-full h-full flex flex-col justify-between items-center flex-shrink-0 flex-grow-0"

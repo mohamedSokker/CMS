@@ -41,7 +41,7 @@ const Dropdown = ({
   // console.log(label, fieldsAddData[label]);
 
   return (
-    <div className="p-2 flex flex-col justify-center items-center bg-gray-100 dark:bg-background-logoColor">
+    <div className="p-2 flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-800">
       <p className="w-full h-6 text-[14px] text-gray-400 flex flex-row justify-start">{`Select ${label}`}</p>
       <div className={`flex flex-row gap-2 items-center relative`}>
         {/* <p style={{ width: "40%" }}>{label}</p> */}

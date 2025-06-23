@@ -36,7 +36,7 @@ const DataEntry = () => {
 
   return (
     <div
-      className="w-full bg-gray-100 rounded-xl h-[100%] Main--Content flex items-center justify-center dark:bg-background-logoColor"
+      className="w-full bg-gray-100 rounded-xl h-[100%] Main--Content flex items-center justify-center dark:bg-gray-800"
       onClick={closeSmallSidebar}
     >
       {renderPage()}

@@ -48,7 +48,7 @@ const ManageCustomDataEntry = ({ selectedTable }) => {
   //   console.log(isExistingTable);
   return (
     <div
-      className={`w-full flex flex-col px-4 pb-8 gap-8 bg-gray-100 Main--Page dark:bg-background-logoColor h-full relative text-[14px]`}
+      className={`w-full flex flex-col px-4 pb-8 gap-8 bg-gray-100 Main--Page dark:bg-gray-800 h-full relative text-[14px]`}
       onClick={closeSmallSidebar}
     >
       {loading && <PageLoading message={message} />}

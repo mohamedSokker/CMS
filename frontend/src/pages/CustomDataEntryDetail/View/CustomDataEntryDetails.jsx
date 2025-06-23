@@ -66,7 +66,7 @@ const CustomDataEntryDetails = () => {
   }, [DBdata]);
   return (
     <div
-      className={`w-full flex flex-col bg-gray-100 Main--Page dark:bg-background-logoColor h-full relative`}
+      className={`w-full flex flex-col bg-gray-100 Main--Page dark:bg-gray-800 h-full relative`}
       onClick={closeSmallSidebar}
     >
       {isLoading && <PageLoading message={`Loading Data...`} />}
@@ -154,7 +154,7 @@ const CustomDataEntryDetails = () => {
         usersData[0]?.roles?.User?.CustomDataEntry) &&
         targetData?.[0]?.Users?.includes(usersData[0]?.username)) ||
       usersData[0]?.roles.Admin ? (
-        <div className="flex flex-row flex-wrap w-[100vw] h-[90%] bg-gray-100 dark:bg-background-logoColor p-4">
+        <div className="flex flex-row flex-wrap w-[100vw] h-[90%] bg-gray-100 dark:bg-gray-800 p-4">
           {currentCat === "Data Entry" ? (
             <DataEntry targetData={targetData} />
           ) : currentCat === "Table" ? (

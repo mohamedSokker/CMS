@@ -245,7 +245,7 @@ const ProffesionalTable = ({ item, data, defaultWidth }) => {
     >
       <section
         ref={tableRef}
-        className="table__body relative dark:bg-background-logoColor"
+        className="table__body relative dark:bg-gray-800"
         style={{ userSelect: "none", height: tableHeight }}
         onScroll={handleScroll}
       >

@@ -156,12 +156,12 @@ const loginapp = async (req, res) => {
       );
 
       // Insert refreshToken to database
-      // res.header(
-      //   "Access-Control-Allow-Origin",
-      //   "http://mhsokker.ddnsfree.com:3000"
-      // );
-      // res.header("Access-Control-Allow-Credentials", true);
-      // res.header("Access-Control-Allow-Headers", "X-Custom-Header");
+      res.header(
+        "Access-Control-Allow-Origin",
+        "https://cms-frontend-91b2.onrender.com"
+      );
+      res.header("Access-Control-Allow-Credentials", true);
+      res.header("Access-Control-Allow-Headers", "X-Custom-Header");
       res.cookie("jwt", refreshToken, {
         httpOnly: true,
         maxAge: 5000000 * 24 * 60 * 60 * 100,

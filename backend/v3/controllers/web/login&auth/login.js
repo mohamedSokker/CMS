@@ -168,6 +168,7 @@ const loginapp = async (req, res) => {
         path: "/",
         secure: true,
         sameSite: "None",
+        domain: "https://cms-frontend-91b2.onrender.com",
       });
       return res.status(200).json({ token: token, user: user });
     });

@@ -33,7 +33,7 @@ const Login = () => {
         url,
         JSON.stringify({ username: userName, password: password }),
         {
-          headers: { "Content-Type": "application/json" },
+          // headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
       );
